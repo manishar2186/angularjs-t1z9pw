@@ -1,4 +1,34 @@
-<h1>Hello {{$ctrl.name}}!</h1>
-<p>
-  Start editing <b>home/home.html</b> :)
-</p>
+<html>
+
+<head>
+
+</head>
+
+<body>
+  <input type = "checkbox" ng-model="mgender" value="Male"/>
+  <input type = "checkbox" value="Female" ng-model="fgender" value="Female"/>
+  <input type="text" ng-model="searchText" placeholder="Whom are you looking for?"/>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Gender</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="candidate in candidates | filter:search | filter:genderSearch">
+        <td>{{candidate.id}}</td>
+        <td>{{candidate.first_name}}</td>
+        <td>{{candidate.last_name}}</td>
+        <td>{{candidate.email}}</td>
+        <td>{{candidate.gender}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</body>
+
+</html>
